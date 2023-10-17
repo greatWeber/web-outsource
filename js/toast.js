@@ -15,9 +15,10 @@
           "margin": options.margin,
           "background-color": options.backgroundColor,
           "color": options.textColor,
-          "padding": "10px",
+          "padding": "20px",
           "border-radius": "5px",
           "line-height":"20px",
+          "font-size":options.fontSize,
           "transform":options.transform,
           "z-index": 9999
       });
@@ -32,14 +33,15 @@
 
   $.toast.defaults = {
       top: '20%',
-      right:'180px',
+    //   right:'180px',
       // right: 0,
-      // left: 0,
+      left: '50%',
       // bottom: 0,
       // margin: 'auto',
+      fontSize:'18px',
       backgroundColor: '#000000',
       textColor: '#ffffff',
-      // transform:'translateX(-50%)',
+      transform:'translateX(-50%)',
       duration: 2000
   };
 })(jQuery);

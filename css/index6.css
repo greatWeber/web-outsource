@@ -28,8 +28,10 @@
     /* left:50%; */
     top: 0;
     /* margin-left:-960px; */
-    width:1920px;
+    /* width:1920px; */
+    width: 100%;
     height:100%;
+    object-fit: cover;
 }
 
 .swiper-pagination {
@@ -176,7 +178,7 @@
 }
 
 .stat-item-course .item1 .icon {
-    font-size: 13px;
+    font-size: 18px;
 }
 
 .stat-item-link {

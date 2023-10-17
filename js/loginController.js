@@ -1,5 +1,10 @@
 
 var login_type = 'login';
+var token = window.localStorage.getItem('token');
+var tokenCookie = $.cookie('Authorizion')
+if(token){
+  getUserInfo();
+}
 
 $(document).ready(function() {
   var mySwiper = initSwiper();
@@ -38,6 +43,7 @@ function triggerLoginTag(){
     $(this).addClass('on').siblings().removeClass('on');
     $('#state_login .form-box').hide().eq(index).show();
     login_type = index === 0 ? 'login':'register';
+    $('#loginBut').text(index === 0?'立即登录':'立即注册')
 
   })
 }
@@ -86,9 +92,16 @@ function loginCode(){
       username: username,
       password: password
     },
-    done:function(data){
-      console.log(data);
+    done:function(res){
+      console.log(res);
       // TODO
+      if(res.code === SUCCESS_CODE){
+        window.localStorage.setItem('token',res.data);
+        $('.password-login .username').val('');
+        $('.password-login .password').val('');
+        getUserInfo();
+      }
+      $.toast(res.msg);
     },
     fail:function(err){
       $.toast(err || '登录失败，请联系管理员');
@@ -113,12 +126,48 @@ function registerCode(){
       username: username,
       password: password
     },
-    done:function(data){
-      console.log(data);
+    done:function(res){
+      console.log(res);
       // TODO
+      if(res.code === SUCCESS_CODE) {
+        $.toast('注册成功，请登录');
+        setTimeout(function(){
+          window.location.reload();
+        },1000)
+      }
     },
     fail:function(err){
       $.toast(err || '注册失败，请联系管理员');
+    },
+  })
+}
+
+function getUserInfo(){
+  getUserInfoApi({
+    done:function(res){
+      console.log(res);
+      // TODO
+      if(res.code === SUCCESS_CODE){
+        oldSystemLoginApi({
+          loginMode:2,
+          password:res.data.password,
+          username:res.data.phone,
+        }).done(function(res){
+          console.log(res)
+          if(res.retCode === 'T200'){
+            $.toast('您已经登录，正在为你跳转...');
+            setTimeout(function(){
+              window.location.href = window.location.origin+'/usercenter/#/'
+            },1000)
+            
+          }
+        }).fail(function(err){
+          $.toast('登录原系统失败');
+        })
+      }
+    },
+    fail:function(err){
+      $.toast(err || '获取用户信息失败');
     },
   })
 }
