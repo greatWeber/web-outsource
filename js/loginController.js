@@ -1,8 +1,8 @@
 
 var login_type = 'login';
 var token = window.localStorage.getItem('token');
-var tokenCookie = $.cookie('Authorizion')
-if(token){
+var tokenCookie = $.cookie('Authorization')
+if(token && tokenCookie){
   getUserInfo();
 }
 

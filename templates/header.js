@@ -8,27 +8,35 @@ var headerTemplate = `
   <div class="nav clearfix">
     <div class="nav-left">
       <div class="nav-item">
-        <span class="nav-title">实验简介</span>
+        <span class="nav-title" data-id="1">实验简介</span>
         <ul class="nav-ul">
-          <li class="nav-li"><a href="${BASE_URL}/detail.html?id=1-1&name=introduction">实验教学目标,实验原理</a></li>
-          <li class="nav-li">三分钟实验简介视频</li>
+          <li class="nav-li" data-id="1-1"><a href="${BASE_URL}/detail.html?id=1-1&name=introduction">实验教学目标,实验原理</a></li>
+          <li class="nav-li" data-id="1-2"><a href="${BASE_URL}/detail.html?id=1-2&name=introVideo">三分钟实验简介视频</a></li>
         </ul>
       </div>
 
       <div class="nav-item">
-        <span class="nav-title">实验教学引导</span>
+        <span class="nav-title" data-id="2">实验教学引导</span>
         <ul class="nav-ul">
-          <li class="nav-li"><a href="${BASE_URL}/detail.html?id=2-1&name=guide">实验教学过程与实验方法,实验操作步骤</a></li>
-          <li class="nav-li">八分钟教学引导视频</li>
+          <li class="nav-li" data-id="2-1"><a href="${BASE_URL}/detail.html?id=2-1&name=guide">实验教学过程与实验方法,实验操作步骤</a></li>
+          <li class="nav-li" data-id="2-2"><a href="${BASE_URL}/detail.html?id=2-2&name=guideVideo">八分钟教学引导视频</a></li>
         </ul>
       </div>
 
       <div class="nav-item">
-        <span class="nav-title">实验环境要求</span>
+        <span class="nav-title" data-id="3">实验环境要求</span>
         <ul class="nav-ul">
-          <li class="nav-li"><a href="${BASE_URL}/detail.html?id=3-1&name=network">网络要求</a></li>
-          <li class="nav-li"><a href="${BASE_URL}/detail.html?id=3-1&name=hardware">硬件要求</a></li>
-          <li class="nav-li"><a href="${BASE_URL}/detail.html?id=3-1&name=system">用户操作系统要求</a></li>
+          <li class="nav-li" data-id="3-1"><a href="${BASE_URL}/detail.html?id=3-1&name=network">网络要求</a></li>
+          <li class="nav-li" data-id="3-2"><a href="${BASE_URL}/detail.html?id=3-2&name=hardware">硬件要求</a></li>
+          <li class="nav-li" data-id="3-3"><a href="${BASE_URL}/detail.html?id=3-3&name=system">用户操作系统要求</a></li>
+        </ul>
+      </div>
+
+      <div class="nav-item">
+        <span class="nav-title" data-id="4">教学特色</span>
+        <ul class="nav-ul">
+          <li class="nav-li" data-id="4-1"><a href="${BASE_URL}/detail.html?id=4-1&name=feature">实验教学特色</a></li>
+          
         </ul>
       </div>
       
@@ -51,3 +59,17 @@ var headerTemplate = `
 `;
 
 $('#north').html(headerTemplate);
+getMenuHighlight();
+
+function getMenuHighlight(){
+  var id =  getURLParam('id');
+  console.log(id);
+  if(!id) return;
+  $('.nav-li').each(function(){
+    console.log($(this).attr('data-id'))
+    if($(this).attr('data-id') == id) {
+      $(this).addClass('nav-li_active');
+      $(this).parent().prev('.nav-title').addClass('nav-active')
+    }
+  })
+}

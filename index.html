@@ -47,45 +47,48 @@
             <div class="swiper-button-prev"><i class="iconfont"></i></div>
             <div class="swiper-button-next"><i class="iconfont"></i></div>
           </div>
-
-          <!-- 登录模块 -->
-          <div class="login" id="state_login">
-            <div class="tab">
-              <span class="tab-item on">登录</span>
-              <span class="tab-item ">注册</span>
-            </div>
-            <form class="login_form" id="loginForm" onsubmit="return false;">
-              <div class="password-login form-box">
-                <div class="login_item">
-                  <i class="iconfont ipt-icon icon-yonghu"></i>
-                  <input class="ipt username"  type="text"
-                    autocomplete="off" name="phone" placeholder="用户名" required="true" autofocus="true">
-                </div>
-                <div class="login_item">
-                  <i class="iconfont ipt-icon icon-ziyuan"></i>
-                  <input class="ipt password" 
-                    type="password" autocomplete="off" name="password" placeholder="密码" required="true"><i
-                    class="iconfont password-icon icon-yanjing-bi"></i>
-                </div>
-              </div>
-
-              <div class="register form-box hide">
-                <div class="login_item">
-                  <i class="iconfont ipt-icon icon-yonghu"></i>
-                  <input class="ipt username"  type="text"
-                    autocomplete="off" name="phone" placeholder="用户名" required="true" autofocus="true">
-                </div>
-                <div class="login_item">
-                  <i class="iconfont ipt-icon icon-ziyuan"></i>
-                  <input class="ipt password" 
-                    type="password" autocomplete="off" name="password" placeholder="密码" required="true"><i
-                    class="iconfont password-icon icon-yanjing-bi"></i>
-                </div>
-              </div>
-            </form>
-            <div class="login_btn" id="loginBut">立即登录</div>
-          </div>
         </div>
+
+        <div class="login-wrapper">
+           <!-- 登录模块 -->
+        <div class="login" id="state_login">
+          <div class="tab">
+            <span class="tab-item on">登录</span>
+            <span class="tab-item ">注册</span>
+          </div>
+          <form class="login_form" id="loginForm" onsubmit="return false;">
+            <div class="password-login form-box">
+              <div class="login_item">
+                <i class="iconfont ipt-icon icon-yonghu"></i>
+                <input class="ipt username"  type="text"
+                  autocomplete="off" name="phone" placeholder="用户名" required="true" autofocus="true">
+              </div>
+              <div class="login_item">
+                <i class="iconfont ipt-icon icon-ziyuan"></i>
+                <input class="ipt password" 
+                  type="password" autocomplete="off" name="password" placeholder="密码" required="true"><i
+                  class="iconfont password-icon icon-yanjing-bi"></i>
+              </div>
+            </div>
+
+            <div class="register form-box hide">
+              <div class="login_item">
+                <i class="iconfont ipt-icon icon-yonghu"></i>
+                <input class="ipt username"  type="text"
+                  autocomplete="off" name="phone" placeholder="用户名" required="true" autofocus="true">
+              </div>
+              <div class="login_item">
+                <i class="iconfont ipt-icon icon-ziyuan"></i>
+                <input class="ipt password" 
+                  type="password" autocomplete="off" name="password" placeholder="密码" required="true"><i
+                  class="iconfont password-icon icon-yanjing-bi"></i>
+              </div>
+            </div>
+          </form>
+          <div class="login_btn" id="loginBut">立即登录</div>
+        </div>
+        </div>
+       
         <div class="bg-wrap">
           <div class="stat-ctn">
             <ul class="clearfix">
@@ -144,6 +147,7 @@
   <script src="./js/jquery.3.6.0.min.js"></script>
   <script src="./js/jquery.cookie-1.4.1.min.js"></script>
   <script src="./js/swiper-bundle.js"></script>
+  <script src="./js/utils.js"></script>
   <script src="./js/toast.js"></script>
   <script src="./js/loading.js"></script>
   <script src="./js/const.js"></script>
