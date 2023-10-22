@@ -86,11 +86,14 @@ function loginCode(){
     return;
   }
   // TODO
+  // 加密密码
+  var encryptPsw = encrypt(password);
+  console.log(encryptPsw);
   
   loginApi({
     data:{
       username: username,
-      password: password
+      password: encryptPsw
     },
     done:function(res){
       console.log(res);
@@ -110,9 +113,9 @@ function loginCode(){
 }
 
 function registerCode(){
-  var username = $('.register .username').val();
-  var password = $('.register .password').val();
-  console.log(username, password)
+  var username = $('.register .username').val().trim();
+  var password = $('.register .password').val().trim();
+  // console.log('---'+username+'---') 
   if(!username){
     $.toast('请填写用户名');
     return;
@@ -120,11 +123,21 @@ function registerCode(){
     $.toast('请填写密码');
     return;
   }
+  // 判断密码是否符合规范
+  if(!/^[a-zA-Z0-9]{6,16}$/.test(password)){
+    $.toast('密码长度为6-16, 支持字母和数字的组合');
+    return;
+  }
+  // 加密密码
+  var encryptPsw = encrypt(password);
+  console.log(encryptPsw);
+
+  // return;
   // TODO
   registerApi({
     data:{
       username: username,
-      password: password
+      password: encryptPsw
     },
     done:function(res){
       console.log(res);

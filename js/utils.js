@@ -17,3 +17,16 @@ function getURLParam(name) {
   
   return null;
 }
+/**
+ * 加密
+ * @param {*} str 
+ * @returns 
+ */
+function encrypt(str) {
+  let result = '';
+  for (let i = 0; i < str.length; i++) {
+      let charCode = str.charCodeAt(i);
+      result += String.fromCharCode(charCode + 1);
+  }
+  return result;
+}
