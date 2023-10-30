@@ -30,3 +30,39 @@ function encrypt(str) {
   }
   return result;
 }
+
+// 加密函数
+function encryptAES(password, slat) {
+
+  // 加密密钥，必须为 16、24 或 32 位，对应 AES-128、AES-192 或 AES-256
+  const key = CryptoJS.enc.Utf8.parse(slat);
+
+  // 加密向量，必须为 16 位
+  const iv = CryptoJS.enc.Utf8.parse(IV);
+
+  console.log(key,iv);
+
+  // 进行 AES 加密
+  const ciphertext = CryptoJS.AES.encrypt(password, key, { iv: iv, mode: CryptoJS.mode.CBC });
+  return ciphertext.toString();
+}
+
+
+// 解密函数
+function decryptAES(encryptedPassword, slat) {
+
+  // 加密密钥，必须为 16、24 或 32 位，对应 AES-128、AES-192 或 AES-256
+  const key = CryptoJS.enc.Utf8.parse(slat);
+
+  // 加密向量，必须为 16 位
+  const iv = CryptoJS.enc.Utf8.parse(IV);
+
+  // 解密密钥和加密向量必须与加密时使用的相同
+  const bytes = CryptoJS.AES.decrypt(encryptedPassword, key, { iv: iv, mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7 });
+
+  // 将解密后的结果转换为字符串
+  const decryptedText = bytes.toString(CryptoJS.enc.Utf8);
+
+  return decryptedText;
+}
+

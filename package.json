@@ -1,0 +1,27 @@
+{
+  "name": "web-outsource",
+  "version": "1.0.0",
+  "description": "web-outsource",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/greatWeber/web-outsource.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/greatWeber/web-outsource/issues"
+  },
+  "homepage": "https://github.com/greatWeber/web-outsource#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-es2015": "^6.24.1",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^7.0.1",
+    "gulp-less": "^5.0.0",
+    "gulp-watch": "^5.0.1"
+  }
+}

@@ -8,17 +8,18 @@ function request(url, options) {
   var Url = /^(f|ht)tps?:\/\//i.test(url)? url: baseUrl+url;
   var token = window.localStorage.getItem('token');
   var whileList = ['/user/register'];
+  var headers = {"Accept": "*/*",};
+  if(token!==null&&!whileList.includes(url)){
+    headers.Authorization = token;
+  }
+  console.log('headers',headers)
   ajaxCount++;
   $.loading().show();
   try {
     $.ajax({
       url: baseUrl+url,                 // 代表请求的服务器地址
       method: options.method,       // 使用的请求方法
-      headers: {
-        Authorization: whileList.includes(url)?null: token,
-        "Accept": "*/*",
-        // "Connection": "keep-alive"
-      },                 // 设置请求头
+      headers: headers,                 // 设置请求头
       contentType:'application/json', //
       // processData:false,
       dataType:'json',
@@ -26,6 +27,10 @@ function request(url, options) {
       // xhrFields: { withCredentials: true }, //跨域
     }).done((data) => {
       // TODO
+      // console.log(data);
+      if(data.code === EXPIRE_CODE){
+        window.localStorage.removeItem('token');
+      }
         options.done&&options.done(data);
     }).fail((xhr, status, err) => {
         console.error(xhr);

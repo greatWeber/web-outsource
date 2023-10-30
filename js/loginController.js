@@ -1,9 +1,10 @@
 
 var login_type = 'login';
 var token = window.localStorage.getItem('token');
-var tokenCookie = $.cookie('Authorization')
-if(token && tokenCookie){
-  getUserInfo();
+var tokenCookie = $.cookie('Authorization');
+// console.log(token,tokenCookie);
+if(token){
+  getUserInfo(true);
 }
 
 $(document).ready(function() {
@@ -87,7 +88,7 @@ function loginCode(){
   }
   // TODO
   // 加密密码
-  var encryptPsw = encrypt(password);
+  var encryptPsw = encryptAES(password,SLAT);
   console.log(encryptPsw);
   
   loginApi({
@@ -129,21 +130,22 @@ function registerCode(){
     return;
   }
   // 加密密码
-  var encryptPsw = encrypt(password);
-  console.log(encryptPsw);
+  // var encryptPsw = encryptAES(password,SLAT);
+  // console.log(encryptPsw);
 
   // return;
   // TODO
   registerApi({
     data:{
       username: username,
-      password: encryptPsw
+      password: password
     },
     done:function(res){
       console.log(res);
       // TODO
       if(res.code === SUCCESS_CODE) {
         $.toast('注册成功，请登录');
+        window.localStorage.removeItem('token');
         setTimeout(function(){
           window.location.reload();
         },1000)
@@ -155,23 +157,34 @@ function registerCode(){
   })
 }
 
-function getUserInfo(){
+function getUserInfo(flag){
   getUserInfoApi({
     done:function(res){
       console.log(res);
       // TODO
       if(res.code === SUCCESS_CODE){
+        var password = decryptAES(res.data.password,SLAT);
         oldSystemLoginApi({
           loginMode:2,
-          password:res.data.password,
+          password:password,
           username:res.data.phone,
         }).done(function(res){
           console.log(res)
           if(res.retCode === 'T200'){
-            $.toast('您已经登录，正在为你跳转...');
-            setTimeout(function(){
-              window.location.href = window.location.origin+'/usercenter/#/'
-            },1000)
+            if(flag){
+              var r  =  window.confirm('检查到已登录,是否跳转原系统');
+              if(r){
+                setTimeout(function(){
+                  window.location.href = window.location.origin+'/usercenter/#/'
+                },1000)
+              }
+            }else  {
+              $.toast('您已经登录，正在为你跳转...');
+              setTimeout(function(){
+                window.location.href = window.location.origin+'/usercenter/#/'
+              },1000)
+            }
+            
             
           }
         }).fail(function(err){

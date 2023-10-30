@@ -1,0 +1,107 @@
+{
+  "id": "4285625",
+  "name": "outsource",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "外包",
+  "glyphs": [
+    {
+      "icon_id": "646600",
+      "name": "home",
+      "font_class": "home",
+      "unicode": "e6a9",
+      "unicode_decimal": 59049
+    },
+    {
+      "icon_id": "7275446",
+      "name": "VR",
+      "font_class": "VR",
+      "unicode": "e6ac",
+      "unicode_decimal": 59052
+    },
+    {
+      "icon_id": "22272805",
+      "name": "load",
+      "font_class": "load",
+      "unicode": "e648",
+      "unicode_decimal": 58952
+    },
+    {
+      "icon_id": "761306",
+      "name": "报表",
+      "font_class": "icon",
+      "unicode": "e654",
+      "unicode_decimal": 58964
+    },
+    {
+      "icon_id": "1356161",
+      "name": "眼睛-闭",
+      "font_class": "yanjing-bi",
+      "unicode": "e61d",
+      "unicode_decimal": 58909
+    },
+    {
+      "icon_id": "2293643",
+      "name": "培训案例-01",
+      "font_class": "peixunanli",
+      "unicode": "e73f",
+      "unicode_decimal": 59199
+    },
+    {
+      "icon_id": "4813178",
+      "name": "混合云数据备份",
+      "font_class": "hunheyunshujubeifen",
+      "unicode": "e657",
+      "unicode_decimal": 58967
+    },
+    {
+      "icon_id": "7708023",
+      "name": "眼睛_开",
+      "font_class": "yanjing_kai",
+      "unicode": "e61b",
+      "unicode_decimal": 58907
+    },
+    {
+      "icon_id": "8118520",
+      "name": "人员统计",
+      "font_class": "renyuantongji",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "9766964",
+      "name": "登录_密码",
+      "font_class": "ziyuan",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    },
+    {
+      "icon_id": "11082845",
+      "name": "科技",
+      "font_class": "juxing",
+      "unicode": "e715",
+      "unicode_decimal": 59157
+    },
+    {
+      "icon_id": "15493247",
+      "name": "科技",
+      "font_class": "keji",
+      "unicode": "e689",
+      "unicode_decimal": 59017
+    },
+    {
+      "icon_id": "15726979",
+      "name": "用户",
+      "font_class": "yonghu",
+      "unicode": "e658",
+      "unicode_decimal": 58968
+    },
+    {
+      "icon_id": "17792949",
+      "name": "虚拟仿真",
+      "font_class": "xunifangzhen",
+      "unicode": "ebd3",
+      "unicode_decimal": 60371
+    }
+  ]
+}
