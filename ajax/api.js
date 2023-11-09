@@ -29,17 +29,28 @@ function request(url, options) {
       // TODO
       // console.log(data);
       if(data.code === EXPIRE_CODE){
+        $.toast('token失效, 请重新登陆');
         window.localStorage.removeItem('token');
-      }
+        window.localStorage.removeItem('userName');
+        window.eventEmitter.emit('tokenOut');
+      }else  if(data.code  === SUCCESS_CODE){
         options.done&&options.done(data);
+      }else {
+        options.fail&&options.fail('');
+      }
+        
     }).fail((xhr, status, err) => {
         console.error(xhr);
+        var  errorText  =  '请求出错, 请联系管理员 '
         var responseJSON = xhr.responseJSON;
         if(responseJSON.code === EXPIRE_CODE){
+          errorText  =  'token失效, 请重新登陆';
           window.localStorage.removeItem('token');
+          window.localStorage.removeItem('userName');
+          window.eventEmitter.emit('tokenOut');
           // window.localStorage.removeItem('userInfo');
         }
-        options.fail&&options.fail('token超时');
+        options.fail&&options.fail(errorText);
     }).always((data, status) => {
      
     });
@@ -82,4 +93,10 @@ function oldSystemLoginApi(data) {
   // var options =$.extend({method: 'post'},options);
   // request('http://10.126.156.163/usercenter/web/login',options);
   return $.post('/usercenter/web/login',data);
+}
+
+// 获取当前用户
+function logoutApi(options) {
+  var options =$.extend({method: 'post'},options);
+  request('/user/logout',options);
 }

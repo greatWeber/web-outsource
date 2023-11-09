@@ -2,7 +2,8 @@
 var gulp = require('gulp');
 var watch = require('gulp-watch');
 var less = require('gulp-less');
-var babel = require('gulp-babel')
+var babel = require('gulp-babel');
+var uglify = require('gulp-uglify');  
 
 // 编译 js 文件
 gulp.task('js', function () {
@@ -13,7 +14,10 @@ gulp.task('js', function () {
 function jsTask(){
     return gulp
     .src('src/js/*.js')
-    .pipe(babel())
+    .pipe(babel({
+        presets:['es2015']
+    }))
+    .pipe(uglify())
     .pipe(gulp.dest('js'))
 }
 

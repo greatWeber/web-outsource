@@ -39,8 +39,7 @@
           <div class="swiper">
             <div class="swiper-wrapper">
               <div class="swiper-slide"><a href="javascript:;" target=""><img src="./images/banner-1.jpeg"></a></div>
-              <div class="swiper-slide"><a href="javascript:;" target=""><img src="./images/banner-2.jpeg"></a>
-              </div>
+              <div class="swiper-slide"><a href="javascript:;" target=""><img src="./images/banner-2.jpeg"></a></div>
             </div>
             <div class="swiper-pagination">
 
@@ -90,57 +89,6 @@
         </div>
         </div>
        
-        <!-- <div class="bg-wrap">
-          <div class="stat-ctn">
-            <ul class="clearfix">
-              <li class="stat-item item1">
-                <div class="stat-item-icon"><a href="javascript:;">
-                    <p class="img"><i class="iconfont icon-renyuantongji"></i></p>
-                    <p class="num"><b>11693</b>期次</p>
-                    <p class="num text">智能实验室</p>
-                  </a></div>
-                <div class="stat-item-course">
-                  <a class="course-item item1" href="javascript:;"><i class="iconfont icon icon-VR"></i>虚拟仿真实验课</a><a
-                    class="course-item item2" href="javascript:;"><i class=" iconfont icon icon-peixunanli"></i>线上实验课</a><a
-                    class="course-item item3" href=""><i class="iconfont icon icon-hunheyunshujubeifen"></i>混合式实验课</a>
-                </div>
-                <div class="stat-item-link"><a class="link-item item1" href="">开课指南</a><a class="link-item item2"
-                    href="">热门课程</a><a class="link-item item3" href="javascript:;">数字出版</a>
-                </div>
-              </li>
-              <li class="stat-item item2">
-                <div class="stat-item-icon"><a href="javascript:;">
-                    <p class="img"><i class="iconfont icon-keji"></i></p>
-                    <p class="num"><b>3511</b>个</p>
-                    <p class="num text">实验中心</p>
-                  </a></div>
-                <div class="stat-item-subject clearfix"><a class="subject-item item1" href="javascript:;">机械类</a><a
-                    class="subject-item item2" href="javascript:;">化学类</a><a class="subject-item item3"
-                    href="javascript:;">经济类</a><a class="subject-item item4" href="javascript:;">材料类</a><a
-                    class="subject-item item5" href="javascript:;">药学类</a><a class="subject-item item6"
-                    href="javascript:;">文学类</a><a class="subject-item item7" href="javascript:;">土木类</a><a
-                    class="subject-item item8" href="javascript:;">植物类</a><a class="subject-item item9"
-                    href="javascript:;">管理类</a><a class="subject-item item10" href="javascript:;">电气类</a><a
-                    class="subject-item item11" href="javascript:;">动物类</a><a class="subject-item item12"
-                    href="javascript:;">更多<i class="iconfont"></i></a></div>
-                <div class="stat-item-link"><a class="link-item item1" href="javascript:">专业在线实验室</a><a
-                    class="link-item item2" href="javascript:">土木类在线实验室</a><a class="link-item item3"
-                    href="javascript:;">分子计算在线实验室</a></div>
-              </li>
-              <li class="stat-item item3">
-                <div class="stat-item-icon">
-                  <p class="img"><i class="iconfont icon-icon"></i></p>
-                  <p class="num"><b>1600</b>万+人次</p>
-                  <p class="num text">应用评价</p>
-                </div>
-                <div class="stat-item-link"><a class="link-item item1" href="javascript:;">人气指数</a><a
-                    class="link-item item2" href="javascript:;">共享指数</a><a class="link-item item3"
-                    href="javascript:;">互动指数</a><a class="link-item item4" href="javascript:;">吸引指数</a></div>
-              </li>
-            </ul>
-          </div>
-
-        </div> -->
 
       </div>
     </div>
@@ -153,10 +101,21 @@
   <script src="./js/utils.js"></script>
   <script src="./js/toast.js"></script>
   <script src="./js/loading.js"></script>
+  <script src="./js/EventEmitter.js"></script>
+
   <script src="./js/const.js"></script>
-  <script src="./templates/header.js"></script>
+  <!-- <script src="./templates/header.js"></script>
   <script src="./ajax/api.js"></script>
-  <script src="./js/loginController.js"></script>
+  <script src="./js/loginController.js"></script> -->
+  <script>
+
+    loadJs([
+      // './js/const.js',
+      './templates/header.js',
+      './ajax/api.js',
+      './js/loginController.js'
+    ])
+  </script>
 </body>
 
 </html>

@@ -178,20 +178,16 @@ var guide = `
 
 var network = `
   <div class="content-head">
-    <h1 class="detail-h1">网络要求</h1>
+    <h1 class="detail-h1">实验环境要求</h1>
   </div>
   <div class="content-body">
+    <h2 class="detail-h2">网络要求</h2>
     <p class="detail-p"><strong>(1)说明客户端到服务器的带宽要求(需提供测试带宽服务)</strong></p>
     <p class="detail-p">上下行带宽50M以上</p>
     <p class="detail-p"><strong>(2)说明能够支持的同时在线人数(需提供在线排队提示服务)</strong></p>
     <p class="detail-p">100</p>
-  </div>
-`;
-var hardware = `
-  <div class="content-head">
-    <h1 class="detail-h1">硬件要求</h1>
-  </div>
-  <div class="content-body">
+
+    <h2 class="detail-h2">硬件要求</h2>
     <p class="detail-p"><strong>(1)计算机硬件配置要求</strong></p>
     <p class="detail-p">CPU：i5-7500以上</p>
     <p class="detail-p">内存：8G以上</p>
@@ -199,6 +195,30 @@ var hardware = `
     <p class="detail-p">显卡：GeForceGTX1050以上</p>
     <p class="detail-p"><strong>(2)其他计算终端硬件配置要求 </strong></p>
     <p class="detail-p">无</p>
+
+    <h2 class="detail-h2">操作系统要求</h2>
+
+    <p class="detail-p"><strong>(1)计算机操作系统和版本要求</strong></p>
+    <p class="detail-p">Windows server2008 R2以上</p>
+    <p class="detail-p"><strong>(2)其他计算终端操作系统和版本要求  </strong></p>
+    <p class="detail-p">Windows7、8、10</p>
+    <p class="detail-p"><strong>(3)	支持移动端</strong> </p>
+    <p class="detail-p"> 否</p>
+
+  </div>
+`;
+var hardware = `
+  <div class="content-head">
+    <h1 class="detail-h1">硬件要求</h1>
+  </div>
+  <div class="content-body">
+  <p class="detail-p"><strong>(1)计算机硬件配置要求</strong></p>
+  <p class="detail-p">CPU：i5-7500以上</p>
+  <p class="detail-p">内存：8G以上</p>
+  <p class="detail-p">硬盘：500G以上</p>
+  <p class="detail-p">显卡：GeForceGTX1050以上</p>
+  <p class="detail-p"><strong>(2)其他计算终端硬件配置要求 </strong></p>
+  <p class="detail-p">无</p>
   </div>
 `;
 var system = `
@@ -241,7 +261,7 @@ var feature = `
 
 var introVideo = `
   <div class="content-head">
-    <h1 class="detail-h1">三分钟实验简介视频</h1>
+    <h1 class="detail-h1">实验简介视频</h1>
   </div>
   <video class="detail-video" controls>
     <source src="${BASE_URL}/video/introVideo.mp4" type="video/mp4">
@@ -252,7 +272,7 @@ var introVideo = `
 
 var guideVideo = `
   <div class="content-head">
-    <h1 class="detail-h1">八分钟教学引导视频</h1>
+    <h1 class="detail-h1">教学引导视频</h1>
   </div>
   <video class="detail-video" controls>
     <source src="${BASE_URL}/video/guideVideo.mp4" type="video/mp4">

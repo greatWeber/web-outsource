@@ -129,6 +129,8 @@
 
 .header_container .nav-right {
     max-width: 310px;
+    display: flex;
+    align-items: flex-end;
 }
 
 .header_container .nav .user-info span a {
@@ -180,6 +182,12 @@
     position:relative;
     padding-left: 10px;
     margin-left: 6px;
+}
+
+#loginSystem  {
+ 
+    background-color: #0068b6;
+    color: #fff;
 }
 
 
