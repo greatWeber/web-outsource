@@ -5,18 +5,19 @@ var tokenCookie = $.cookie('Authorization');
 // console.log(token,tokenCookie);
 
 window.eventEmitter.on('tokenOut',function(){
-  $('#state_login').show();
+  $('#loginRegister').show();
 });
 
 
 $(document).ready(function() {  
-  var mySwiper = initSwiper();
+  // var mySwiper = initSwiper();
   triggerLoginTag();
   triggerPasswordIcon();
+  triggerVideoTab();
   onLoginSubmit();
   if(token){
     // getUserInfo(true);
-    $('#state_login').hide();
+    $('#loginRegister').hide();
     $('#loginSystem').show();
   }else  {
     $('#loginSystem').hide();
@@ -47,6 +48,11 @@ function initSwiper(){
 
 // 切换logintab
 function triggerLoginTag(){
+
+  $('.login-close').click(function(){
+    $('.login-wrapper').toggle();
+  })
+
   $('#state_login .tab-item').click(function(){
     if($(this).hasClass('on')) return;
     var index = $('#state_login .tab-item').index(this);
@@ -68,6 +74,16 @@ function triggerPasswordIcon(){
       $(this).addClass('open icon-yanjing_kai').removeClass('icon-yanjing-bi');
       $(this).prev().attr('type','text');
     }
+  })
+}
+
+// 切换密码框icon
+function triggerVideoTab(){
+  $('.video-tab .tab-item').click(function(){
+    if($(this).hasClass('tab-active')) return;
+    var index = $('.video-tab .tab-item').index(this);
+    $(this).addClass('tab-active').siblings().removeClass('tab-active');
+    $('.video-box .video').hide().eq(index).show();
   })
 }
 
@@ -112,9 +128,10 @@ function loginCode(){
         window.localStorage.setItem('token',res.data);
         $('.password-login .username').val('');
         $('.password-login .password').val('');
-        $('#state_login').hide();
+        $('#loginRegister').hide();
         $('#loginSystem').show();
-        $('#userInfo').show();
+        $('.login-wrapper').toggle(); 
+
         getUserInfo();
       }
       $.toast(res.msg);

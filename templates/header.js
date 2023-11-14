@@ -10,16 +10,16 @@ var headerTemplate = `
       <div class="nav-item">
         <span class="nav-title" data-id="1">实验简介</span>
         <ul class="nav-ul">
-          <li class="nav-li" data-id="1-1"><a href="${BASE_URL}/detail.html?id=1-1&name=introduction">实验教学目标,实验原理</a></li>
-          <li class="nav-li" data-id="1-2"><a href="${BASE_URL}/detail.html?id=1-2&name=introVideo">实验简介视频</a></li>
+          <li class="nav-li" data-id="1-1"><a href="${BASE_URL}/detail.html?id=1-1&name=introduction">实验教学目标</a></li>
+          <li class="nav-li" data-id="1-2"><a href="${BASE_URL}/detail.html?id=1-2&name=introduction2">实验原理</a></li>
         </ul>
       </div>
 
       <div class="nav-item">
         <span class="nav-title" data-id="2">实验教学引导</span>
         <ul class="nav-ul">
-          <li class="nav-li" data-id="2-1"><a href="${BASE_URL}/detail.html?id=2-1&name=guide">实验教学过程与实验方法,实验操作步骤</a></li>
-          <li class="nav-li" data-id="2-2"><a href="${BASE_URL}/detail.html?id=2-2&name=guideVideo">教学引导视频</a></li>
+          <li class="nav-li" data-id="2-1"><a href="${BASE_URL}/detail.html?id=2-1&name=guide">实验教学过程与实验方法</a></li>
+          <li class="nav-li" data-id="2-2"><a href="${BASE_URL}/detail.html?id=2-2&name=guide2">实验操作步骤</a></li>
         </ul>
       </div>
 
@@ -45,6 +45,8 @@ var headerTemplate = `
       </a></div>
       <div class="changeLang"  ><a id="loginSystem" class="lang-title" href="javascript:;">启动实验
       </a></div>
+      <div class="changeLang"  ><a id="loginRegister" class="lang-title" href="javascript:;">注册/登录
+      </a></div>
       <div class="changeLang before"><span id="userInfo" class="lang-title"></span>
         <div class="lang-select">
           <a href="javascript:;" id="logout" data-lang="CN" class="lang-item active" id="changeLangZh">退出登录</a>
@@ -55,6 +57,47 @@ var headerTemplate = `
   </div>
 </div>
 </div>
+
+<div class="login-wrapper">
+           
+  <div class="login" id="state_login">
+    <img src="./images/close.png" alt="close" class="login-close" />
+    <div class="tab">
+      <span class="tab-item on">登录</span>
+      <span class="tab-item ">注册</span>
+    </div>
+    <form class="login_form" id="loginForm" onsubmit="return false;">
+      <div class="password-login form-box">
+        <div class="login_item">
+          <i class="iconfont ipt-icon icon-yonghu"></i>
+          <input class="ipt username"  type="text"
+            autocomplete="off" name="phone" placeholder="用户名" required="true" autofocus="true">
+        </div>
+        <div class="login_item">
+          <i class="iconfont ipt-icon icon-ziyuan"></i>
+          <input class="ipt password" 
+            type="password" autocomplete="off" name="password" placeholder="密码" required="true"><i
+            class="iconfont password-icon icon-yanjing-bi"></i>
+        </div>
+      </div>
+
+      <div class="register form-box hide">
+        <div class="login_item">
+          <i class="iconfont ipt-icon icon-yonghu"></i>
+          <input class="ipt username"  type="text"
+            autocomplete="off" name="phone" placeholder="用户名" required="true" autofocus="true">
+        </div>
+        <div class="login_item">
+          <i class="iconfont ipt-icon icon-ziyuan"></i>
+          <input class="ipt password" 
+            type="password" autocomplete="off" name="password" placeholder="密码" required="true"><i
+            class="iconfont password-icon icon-yanjing-bi"></i>
+        </div>
+      </div>
+    </form>
+    <div class="login_btn" id="loginBut">立即登录</div>
+  </div>
+  </div>
 `;
 
 $('#north').html(headerTemplate);
@@ -65,6 +108,10 @@ $('#loginSystem').click(function(){
 $('#logout').click(function(){
   logout();
 });
+
+$('#loginRegister').click(function(){
+  $('.login-wrapper').toggle(); 
+})
 
 var userName  = window.localStorage.getItem('userName');
 if(userName){
@@ -103,6 +150,7 @@ function getUserInfo(flag){
       // TODO
       if(res.code === SUCCESS_CODE){
         window.localStorage.setItem('userName',res.data.username);
+        $('#userInfo').show().text(res.data.username);
         if(!flag)  return;
         var password = decryptAES(res.data.password,SLAT);
         oldSystemLoginApi({

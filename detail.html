@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="./fonts/iconfont/iconfont.css">
   <link rel="stylesheet" href="./css/header.css">
   <link rel="stylesheet" href="./css/detail.css">
+  <link rel="stylesheet" href="./css/login.css">
   
 
 </head>
@@ -38,9 +39,16 @@
    
   </div>
   <script src="./js/jquery.3.6.0.min.js"></script>
+  <script src="./js/jquery.cookie-1.4.1.min.js"></script>
+  <script src="./js/swiper-bundle.js"></script>
+  <script src="./js/crypto-js.js"></script>
+
   <script src="./js/utils.js"></script>
-  <script src="./js/const.js"></script>
+  <script src="./js/toast.js"></script>
+  <script src="./js/loading.js"></script>
   <script src="./js/EventEmitter.js"></script>
+
+  <script src="./js/const.js"></script>
   <!-- <script src="./templates/header.js"></script>
   <script src="./templates/detail.js"></script> -->
 
@@ -49,7 +57,9 @@
     loadJs([
       // './js/const.js',
       './templates/header.js',
-      './templates/detail.js'
+      './templates/detail.js',
+      './ajax/api.js',
+      './js/loginController.js'
     ])
   </script>
 

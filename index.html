@@ -35,7 +35,8 @@
     </div>
     <div id="center">
       <div id="content" class="content">
-        <div class="banner">
+        <img src="./images/content-img.jpg" alt="bg" class="content-bg">
+        <!-- <div class="banner">
           <div class="swiper">
             <div class="swiper-wrapper">
               <div class="swiper-slide"><a href="javascript:;" target=""><img src="./images/banner-1.jpeg"></a></div>
@@ -47,46 +48,30 @@
             <div class="swiper-button-prev"><i class="iconfont"></i></div>
             <div class="swiper-button-next"><i class="iconfont"></i></div>
           </div>
-        </div>
+        </div> -->
 
-        <div class="login-wrapper">
-           <!-- 登录模块 -->
-        <div class="login" id="state_login">
-          <div class="tab">
-            <span class="tab-item on">登录</span>
-            <span class="tab-item ">注册</span>
+        <div class="text-area">
+          <div class="text-box">
+            <h2 class="text-title">电力市场虚拟仿真实验教学平台</h2>
+            <p class="text">项目负责人:杨洪明、项胜</p>
+            <p class="text">电力市场虚拟仿真实验教学平台服务于电力市场理论课程教学。该平台选取中国典型省份实际交易场景为研究对象，设置零售市场交易、中长期市场交易、现货市场交易等多个实验环节，对电力产业链上的所有主体、整体市场环境、全部规则和全流程进行全景式仿真。在本实验项目中，学生以发电企业或售电公司身份参与市场，完成市场交易申报、出清等交易流程，系统进行结算排名，真实呈现电力市场交易全过程。</p>
+            <p class="text">
+              <span>所属分类:电力市场</span> <span>实验学时:2</span> <span>操作步数: 12</span></p>
           </div>
-          <form class="login_form" id="loginForm" onsubmit="return false;">
-            <div class="password-login form-box">
-              <div class="login_item">
-                <i class="iconfont ipt-icon icon-yonghu"></i>
-                <input class="ipt username"  type="text"
-                  autocomplete="off" name="phone" placeholder="用户名" required="true" autofocus="true">
-              </div>
-              <div class="login_item">
-                <i class="iconfont ipt-icon icon-ziyuan"></i>
-                <input class="ipt password" 
-                  type="password" autocomplete="off" name="password" placeholder="密码" required="true"><i
-                  class="iconfont password-icon icon-yanjing-bi"></i>
-              </div>
+          <div class="video-box">
+            <video class="video video-1" controls poster="./images/video-1.png" object-fit="cover">
+              <source src="./video/introVideo.mp4" type="video/mp4">
+              您的浏览器不支持Video标签。
+            </video>
+            <video class="video video-2" controls poster="./images/video-2.png" object-fit="cover">
+              <source src="./video/guideVideo.mp4" type="video/mp4">
+              您的浏览器不支持Video标签。
+            </video>
+            <div class="video-tab">
+              <p class="tab-item tab-active">实验简介视频</p>
+              <p class="tab-item">教学引导视频</p>
             </div>
-
-            <div class="register form-box hide">
-              <div class="login_item">
-                <i class="iconfont ipt-icon icon-yonghu"></i>
-                <input class="ipt username"  type="text"
-                  autocomplete="off" name="phone" placeholder="用户名" required="true" autofocus="true">
-              </div>
-              <div class="login_item">
-                <i class="iconfont ipt-icon icon-ziyuan"></i>
-                <input class="ipt password" 
-                  type="password" autocomplete="off" name="password" placeholder="密码" required="true"><i
-                  class="iconfont password-icon icon-yanjing-bi"></i>
-              </div>
-            </div>
-          </form>
-          <div class="login_btn" id="loginBut">立即登录</div>
-        </div>
+          </div>
         </div>
        
 

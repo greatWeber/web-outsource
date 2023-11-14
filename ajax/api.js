@@ -43,7 +43,10 @@ function request(url, options) {
         console.error(xhr);
         var  errorText  =  '请求出错, 请联系管理员 '
         var responseJSON = xhr.responseJSON;
-        if(responseJSON.code === EXPIRE_CODE){
+        if(!responseJSON){
+          errorText = '网关错误，请联系管理员';
+          
+        }else if(responseJSON.code === EXPIRE_CODE){
           errorText  =  'token失效, 请重新登陆';
           window.localStorage.removeItem('token');
           window.localStorage.removeItem('userName');

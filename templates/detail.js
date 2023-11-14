@@ -1,6 +1,6 @@
 var introduction = `
     <div class="content-head">
-      <h1 class="detail-h1">实验简介</h1>
+      <h1 class="detail-h1">实验教学目标</h1>
     </div>
     <div class="content-body">
       <h2 class="detail-h2">实验项目的必要性及实用性</h2>
@@ -12,6 +12,14 @@ var introduction = `
       <p class="detail-p">(2)掌握市场交易中不同交易类型下的交易流程和规则、不同市场主体的市场行为和收益成本；掌握中长期交易方法、结算流程，通过多次重复实验了解与实现市场成员利益最大或成本最小的交易策略； </p>
       <p class="detail-p">(3)科研反哺教学，以中国特色电力市场尤其湖南电力发展现状为背景搭建解决实际问题的交易场景；通过电力市场虚拟仿真实验模拟，展示中国特色电力市场交易规律；</p>
       <p class="detail-p">(4)提升学生实践和创新能力，培养具备电力、管理与经济交叉学科知识的复合型人才。</p>
+    </div>
+`;
+
+var introduction2 = `
+    <div class="content-head">
+      <h1 class="detail-h1">实验原理</h1>
+    </div>
+    <div class="content-body">
       <h2 class="detail-h2">实验原理</h2>
       <h3 class="detail-h3">电力市场交易模式概述</h3>
       <p class="detail-p"><strong>电力系统定义:</strong>电力系统是由发电厂、送变电线路、供配电所和用电等环节组成的电能生产与消费系统。它的功能是将自然界的一次能源通过发电动力装置转化成电能，再经输电、变电和配电将电能供应到各用户。为实现这一功能，电力系统在各个环节和不同层次具有相应的信息与控制系统，对电能的生产过程进行测量、调节、控制、保护、通信和调度，以保证用户获得安全、优质的电能。电力系统由一次系统和二次系统组成，一次系统由发电机、送电线路、变压器、断路器等发电、输电、变电、配电等设备组成；二次系统由继电保护、安全自动控制、系统通讯、调度自动化、DCS自动控制系统等组成。</p>
@@ -105,7 +113,7 @@ var introduction = `
 
 var guide = `
   <div class="content-head">
-    <h1 class="detail-h1">实验教学引导</h1>
+    <h1 class="detail-h1">实验教学过程与实验方法</h1>
   </div>
   <div class="content-body">
     <h2 class="detail-h2">实验教学过程</h2>
@@ -116,6 +124,14 @@ var guide = `
     <h2 class="detail-h2">实验方法</h2>
     <p class="detail-p">本实验项目中，共有两种模式，单人练习与多人博弈。其中，单人练习模式是指个人与11个机器人共同操作，引导学生了解实验操作流程及发电企业与售电公司报量与报价范围。多人博弈模式，最多12人操作，承担发电企业角色的学生通过分析自身装机容量、运行成本、每月实际发电量、枯水期与丰水期特点，分场景进行报量与报价，承担售电公司角色的学生通过分析自身售卖电量上限及用户购买价格，确认最高收益进行报量与报价。其余角色由机器人代替，各自独立报价，同场竞争，完成市场交易；最后，通过3至5轮实验的实际操作，进行综合利润排名，以确认学生的成绩。</p>
     <img src="./images/detail/guide-2.png" width="600px" alt="虚拟仿真实验教学框架" class="detail-img">
+  </div>
+`;
+
+var guide2 = `
+  <div class="content-head">
+    <h1 class="detail-h1">实验操作步骤</h1>
+  </div>
+  <div class="content-body">
     <h2 class="detail-h2">实验操作步骤</h2>
     <h3 class="detail-h3">学生交互性操作步骤</h3> 
     <img src="./images/detail/guide-3.png" width="600px" alt="学生交互性操作步骤" class="detail-img">
@@ -283,7 +299,9 @@ var guideVideo = `
 
 var templateObj = {
   introduction:introduction,
+  introduction2:introduction2,
   guide:guide,
+  guide2:guide2,
   network:network,
   hardware: hardware,
   system: system,

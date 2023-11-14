@@ -200,7 +200,7 @@
     height: 80px;
     text-align: center;
     display: inline-block;
-    z-index: 99;
+    z-index: 1;
 }
 
 .changeLang .iconfont {
