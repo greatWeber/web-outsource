@@ -41,7 +41,7 @@ function request(url, options) {
         
     }).fail((xhr, status, err) => {
         console.error(xhr);
-        var  errorText  =  '请求出错, 请联系管理员 '
+        var  errorText  =  ''
         var responseJSON = xhr.responseJSON;
         if(!responseJSON){
           errorText = '网关错误，请联系管理员';
@@ -52,6 +52,8 @@ function request(url, options) {
           window.localStorage.removeItem('userName');
           window.eventEmitter.emit('tokenOut');
           // window.localStorage.removeItem('userInfo');
+        }else {
+          errorText = responseJSON.msg;
         }
         options.fail&&options.fail(errorText);
     }).always((data, status) => {

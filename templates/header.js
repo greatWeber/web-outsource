@@ -45,13 +45,17 @@ var headerTemplate = `
       </a></div>
       <div class="changeLang"  ><a id="loginSystem" class="lang-title" href="javascript:;">启动实验
       </a></div>
-      <div class="changeLang"  ><a id="loginRegister" class="lang-title" href="javascript:;">注册/登录
+      <div class="changeLang" id="loginRegister"  ><a  class="lang-title" href="javascript:;">注册/登录
       </a></div>
+      <div class="changeLang" id="userInfo"  ><a id="logout"  class="lang-title" href="javascript:;">退出登录
+      </a></div>
+      <!--
       <div class="changeLang before"><span id="userInfo" class="lang-title"></span>
         <div class="lang-select">
           <a href="javascript:;" id="logout" data-lang="CN" class="lang-item active" id="changeLangZh">退出登录</a>
         </div>
       </div>
+      -->
     </div>
 
   </div>
@@ -115,7 +119,7 @@ $('#loginRegister').click(function(){
 
 var userName  = window.localStorage.getItem('userName');
 if(userName){
-  $('#userInfo').show().text(userName);
+  $('#userInfo').show();
 }else {
   $('#userInfo').hide();
 }
@@ -150,7 +154,7 @@ function getUserInfo(flag){
       // TODO
       if(res.code === SUCCESS_CODE){
         window.localStorage.setItem('userName',res.data.username);
-        $('#userInfo').show().text(res.data.username);
+        $('#userInfo').show();
         if(!flag)  return;
         var password = decryptAES(res.data.password,SLAT);
         oldSystemLoginApi({
@@ -195,6 +199,9 @@ function logout(){
         window.localStorage.removeItem('userName');
         window.eventEmitter.emit('tokenOut');
       }
-    }
+    },
+    fail:function(err){
+      $.toast(err );
+    },
   })
 }
